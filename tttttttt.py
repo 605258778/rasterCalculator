@@ -43,8 +43,8 @@ for file in files:#遍历文件
         arcpy.Times_3d(raster2,raster7,"F:/temp/8.tif")
         raster8 = arcpy.RasterToFloat_conversion("F:/temp/8.tif")
         arcpy.Plus_3d(raster8,raster1,"F:/temp/9.tif")
-        if (os.path.exists("F:/out/zbzl"+name[:6]+".tif")):
-             os.remove("F:/out/zbzl"+name[:6]+".tif")
+        if (os.path.exists("F:/out/zbzl"+name[:6]+".tif")):#判断输出文件是否存在
+             os.remove("F:/out/zbzl"+name[:6]+".tif")#存在则删除
         shutil.copyfile("F:/temp/9.tif", "F:/out/zbzl"+name[:6]+".tif")#吧最后的计算结果复制到输出文件夹
         print "计算好了"
         del expData#删除变量引用
